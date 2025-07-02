@@ -17,7 +17,7 @@ const Home = () => (
       <Skills />
       <Contact />
     </Content>
-    <Footer style={{ textAlign: 'center' }}>©2025 MyPortfolio</Footer>
+    <Footer style={{ textAlign: 'center' }}>©2025 Tran Minh Giang </Footer>
   </Layout>
 );
 
