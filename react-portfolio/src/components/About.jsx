@@ -20,7 +20,7 @@ const About = () => (
             <Col xs={24} md={8} style={{ textAlign: 'center' }}>
                 <Image
                     width={200}
-                    src="src/assets/avt.png"
+                    src="public/avt.png"
                     alt="Your avatar"
                     style={{ borderRadius: '50%' }}
                     preview={false}
