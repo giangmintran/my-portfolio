@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+/* App.css or your main CSS file */
+.custom-sider {
+  z-index: 100;
+}
+
+@media (min-width: 992px) { /* Ant Design's 'lg' breakpoint */
+  .custom-sider {
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    height: 100vh;
+  }
+  .ant-layout {
+    margin-left: 200px; /* Default sider width */
+  }
+}

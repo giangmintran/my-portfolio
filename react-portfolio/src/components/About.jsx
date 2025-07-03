@@ -27,22 +27,41 @@ const About = () => (
                 />
             </Col>
 
-            {/* Bên phải: thông tin giới thiệu */}
             <Col xs={24} md={16}>
-                <Title level={3}>Hi, I'm a .NET Backend Developer</Title>
+                <Title level={3}>Hi! I'm a Backend Developer</Title>
                 <Paragraph>
-                    I am a Backend Developer with over 3 years of hands-on experience in building and optimizing web systems using the <strong>.NET / ASP.NET Core</strong> platform.
-                    I have contributed to the development of various systems in <strong>finance, data management, and transaction processing</strong>,
-                    focusing on high performance, strong security, and scalable architecture.
+                    Hello! I'm a Backend Developer specialized in <strong>.NET</strong> with a strong enthusiasm for building robust, scalable, and high-performance backend systems.
+                    With extensive experience in developing applications using the <strong>.NET ecosystem</strong>, I'm always focused on creating optimal and sustainable technical solutions.
+                </Paragraph>
+
+                <Title level={4}>Technical Expertise</Title>
+                <Paragraph>
+                    <ul>
+                        <li><strong>Programming Languages:</strong> C#, SQL, JavaScript</li>
+                        <li><strong>Frameworks & Technologies:</strong> .NET Core/5+, ASP.NET Core Web API, Entity Framework Core</li>
+                        <li><strong>Databases:</strong> SQL Server, Oracle, MongoDB, Redis</li>
+                        <li><strong>Cloud & DevOps:</strong> Azure, Docker, CI/CD pipelines</li>
+                        <li><strong>Architecture:</strong> RESTful APIs, Microservices, Clean Architecture, Domain-Driven Design (DDD)</li>
+                    </ul>
+                </Paragraph>
+
+                <Title level={4}>Core Strengths</Title>
+                <Paragraph>
+                    I have the ability to design and implement high-performance <strong>RESTful APIs</strong>, optimize database queries,
+                    and handle complex scenarios in distributed systems. I'm particularly focused on writing clean, maintainable code that adheres to <strong>SOLID principles</strong>.
                 </Paragraph>
                 <Paragraph>
-                    I have hands-on experience with microservice architecture, RESTful APIs, and asynchronous processing using <strong>Hangfire</strong> and <strong>BackgroundService</strong>. I'm also proficient in caching strategies using <strong>Redis</strong> and <strong>MemoryCache</strong>.
+                    I have experience working with modern architectural patterns such as <strong>Clean Architecture</strong> and <strong>Microservices</strong>,
+                    along with deep understanding of patterns like <strong>Repository</strong>, <strong>Unit of Work</strong>, and <strong>CQRS</strong>.
+                    Additionally, I'm capable of integrating third-party services, handling <strong>authentication/authorization</strong>, and implementing
+                    caching solutions to optimize performance.
                 </Paragraph>
+
+                <Title level={4}>Vision</Title>
                 <Paragraph>
-                    My work often includes integrating with third-party services (eKYC, payment gateways, digital signature), optimizing database queries, and deploying apps with Docker, Nginx, and GitLab CI/CD pipelines.
-                </Paragraph>
-                <Paragraph>
-                    I’m passionate about clean architecture, SOLID principles, and delivering maintainable and testable code. I always seek opportunities to learn and apply the latest technologies in the .NET ecosystem.
+                    I'm constantly learning and staying updated with the latest technologies in the .NET ecosystem, from new <strong>C#</strong> features to
+                    cloud computing best practices. My goal is to become a <strong>Senior Backend Developer</strong> capable of leading technical teams and
+                    contributing to building impactful technology products.
                 </Paragraph>
             </Col>
         </Row>

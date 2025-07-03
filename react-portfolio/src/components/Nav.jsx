@@ -1,8 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { UserOutlined, ProjectOutlined, ContactsOutlined, RocketOutlined } from '@ant-design/icons';
-
-const { Header } = Layout;
+import { UserOutlined, ProjectOutlined, ContactsOutlined, RocketOutlined, CodeOutlined } from '@ant-design/icons';
 
 const Navbar = () => {
     const scrollToSection = (id) => {
@@ -14,19 +12,19 @@ const Navbar = () => {
 
     return (
         <Menu
-            theme="dark"
-            mode="horizontal"
+            theme="light"
+            mode="vertical"
             style={{ borderBottom: 'none' }}
             defaultSelectedKeys={[]}
         >
             <Menu.Item key="about" icon={<UserOutlined />} onClick={() => scrollToSection('about')}>
                 About
             </Menu.Item>
-            <Menu.Item key="skills" icon={<RocketOutlined />} onClick={() => scrollToSection('skills')}>
-                Skills
-            </Menu.Item>
             <Menu.Item key="projects" icon={<ProjectOutlined />} onClick={() => scrollToSection('projects')}>
                 Projects
+            </Menu.Item>
+            <Menu.Item key="skills" icon={<CodeOutlined />} onClick={() => scrollToSection('skills')}>
+                Skills
             </Menu.Item>
             <Menu.Item key="contact" icon={<ContactsOutlined />} onClick={() => scrollToSection('contact')}>
                 Contact
