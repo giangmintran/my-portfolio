@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Form, Input, Button, message } from 'antd';
+import { ContactsOutlined } from '@ant-design/icons';
 
 const Contact = () => {
   const onFinish = (values) => {
@@ -10,7 +11,12 @@ const Contact = () => {
   return (
     <Card
       id="contact"
-      title="Contact Me"
+      title={
+            <span>
+                <ContactsOutlined style={{ marginRight: 8 }} />
+                Contact Me
+            </span>
+        }
       style={{ margin: '20px 0' }}
     >
       <Form layout="vertical" onFinish={onFinish}>
