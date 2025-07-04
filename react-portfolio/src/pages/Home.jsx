@@ -5,13 +5,15 @@ import {
   UserOutlined,
   GithubOutlined,
   LinkedinOutlined,
-  FacebookOutlined
+  FacebookOutlined,
+  UpOutlined
 } from '@ant-design/icons';
 import Navbar from '../components/Nav';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Skills from '../components/Skills';
+import Introduction from '../components/Introduction';
 
 const { Sider, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
@@ -30,13 +32,22 @@ function useIsMobile() {
 const Home = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [drawerFullyClosed, setDrawerFullyClosed] = useState(true); // Track fully closed state
+  const [showGoTop, setShowGoTop] = useState(false);
   const isMobile = useIsMobile();
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setShowGoTop(window.scrollY > 200);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const sidebarContent = (
     <div style={{ textAlign: 'center', marginTop: '20px' }}>
-      <Avatar size={64} src="/avatar.jpg" icon={<UserOutlined />} />
-      <Title level={4} style={{ marginTop: '10px' }}>Tran Minh Giang</Title>
-      <Paragraph style={{ fontSize: '13px', color: '#888' }}>
+      <Avatar size={120} src="/avatar.jpg" icon={<UserOutlined />} style={{ marginTop: '20px' }}/>
+      <Title level={4} style={{ marginTop: '20px', fontSize: '24px', }}>Tran Minh Giang</Title>
+      <Paragraph style={{ fontSize: '14px', color: '#888' }}>
         .NET Backend Developer
       </Paragraph>
       <div style={{ marginTop: '10px' }}>
@@ -88,7 +99,16 @@ const Home = () => {
             onClose={() => setDrawerVisible(false)}
             open={drawerVisible}
             bodyStyle={{ padding: 0 }}
-            afterOpenChange={(open) => setDrawerFullyClosed(!open)}
+            afterOpenChange={(open) => 
+              {
+                setDrawerFullyClosed(!open);
+              }
+            }
+            onClick={() => {
+              if (drawerVisible) {
+                setDrawerVisible(false);
+              }
+            }}
           >
             {sidebarContent}
           </Drawer>
@@ -112,15 +132,46 @@ const Home = () => {
       )}
       <Layout style={isMobile ? {} : { marginLeft: 220 }}>
         <Content style={{ padding: '20px' }}>
+          <Introduction />
           <About />
           <Projects />
           <Skills />
           <Contact />
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          ©2025 Tran Minh Giang
+          © 2025 Tran Minh Giang. All rights reserved.
         </Footer>
       </Layout>
+      {showGoTop && (
+        <div
+          style={{
+            position: 'fixed',
+            right: 30,
+            bottom: 40,
+            zIndex: 2000,
+          }}
+        >
+          <div
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            style={{
+              background: '#1890ff',
+              color: '#fff',
+              borderRadius: '50%',
+              width: 48,
+              height: 48,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 24,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              cursor: 'pointer',
+            }}
+            aria-label="Go to top"
+          >
+            <UpOutlined />
+          </div>
+        </div>
+      )}
     </Layout>
   );
 };
