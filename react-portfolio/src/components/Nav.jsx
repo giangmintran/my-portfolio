@@ -14,7 +14,7 @@ const Navbar = () => {
         <Menu
             theme="light"
             mode="vertical"
-            style={{ borderBottom: 'none' }}
+            style={{ borderBottom: 'none', fontSize: '16px', lineHeight: '1.5' }}
             defaultSelectedKeys={[]}
         >
             <Menu.Item key="about" icon={<UserOutlined />} onClick={() => scrollToSection('about')}>

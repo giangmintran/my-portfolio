@@ -1,6 +1,8 @@
-import React from 'react';
-import { Card, Row, Col, Badge, Tag } from 'antd';
+import React, { useEffect } from 'react';
+import { Card, Row, Col, Badge } from 'antd';
 import { ProjectOutlined } from '@ant-design/icons';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const { Meta } = Card;
 
@@ -84,46 +86,53 @@ const projects = [
   },
 ];
 
-const Projects = () => (
-  <Card
-    id="projects"
-    title={
-            <span>
-                <ProjectOutlined style={{ marginRight: 8 }} />
-                Projects
-            </span>
-        }
-    style={{ margin: '20px 0' }}
-  >
-    <Row gutter={[16, 16]}>
-      {projects.map((project, idx) => (
-        <Col xs={24} sm={8} key={idx}>
-          <Card
-            title={project.title}
-            hoverable
-            style={{ height: '100%' }}
-          >
-            <Meta title={project.position} description={project.shortDescription} />
-            <ul>
-              {project.technologies.map((item, index) => (
-                <Badge count={item} style={{ backgroundColor: '#1890ff', margin: '4px' }} key={index} />
-              ))}
-            </ul>
-            <strong>Team Size:</strong> {project.teamSize}
-            <br />
-            <strong>Description:</strong> {project.description}
-            <br />
-            <strong>Responsibilities:</strong>
-            <ul>
-              {project.responsibilities.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </Card>
-        </Col>
-      ))}
-    </Row>
-  </Card>
-);
+const Projects = () => {
+  useEffect(() => {
+    AOS.init({ duration: 500 });
+  }, []);
+
+  return (
+    <Card
+      id="projects"
+      title={
+        <span>
+          <ProjectOutlined style={{ marginRight: 8 }} />
+          Projects
+        </span>
+      }
+      style={{ margin: '20px 0' }}
+      data-aos="flip-left" // changed animation
+    >
+      <Row gutter={[16, 16]}>
+        {projects.map((project, idx) => (
+          <Col xs={24} sm={8} key={idx} data-aos="fade-up-right"> {/* changed animation */}
+            <Card
+              title={project.title}
+              hoverable
+              style={{ height: '100%' }}
+            >
+              <Meta title={project.position} description={project.shortDescription} />
+              <ul>
+                {project.technologies.map((item, index) => (
+                  <Badge count={item} style={{ backgroundColor: '#1890ff', margin: '4px' }} key={index} />
+                ))}
+              </ul>
+              <strong>Team Size:</strong> {project.teamSize}
+              <br />
+              <strong>Description:</strong> {project.description}
+              <br />
+              <strong>Responsibilities:</strong>
+              <ul>
+                {project.responsibilities.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Card>
+  );
+};
 
 export default Projects;
